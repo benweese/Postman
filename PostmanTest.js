@@ -2,14 +2,14 @@
 //This must be in the first test of the collection or collection folder.
 postman.setEnvironmentVariable("commonTests", () => {
     //These are test that are ran on every call of the commonTest.
-    tests[environment.requestName + "Response time is less than 500ms"] = responseTime < 500;
-    tests[environment.requestName + 'JSON array is not empty'] = (responseBody.length > 0);
+    tests["Response time is less than 500ms"] = responseTime < 500;
+    tests['JSON array is not empty'] = (responseBody.length > 0);
     //We then create a function within commonTest for the Successful test we will run.
     var positive = () => {
-        tests[environment.requestName + "Status code is 200"] = responseCode.code === 200;
+        tests["Status code is 200"] = responseCode.code === 200;
         //Below is checking that the data has the correct schema. If we wanted to check correct data we could just add .and.is(data);
         const jsonData = pm.response.json();
-        pm.test(environment.requestName + "Has correct schema", function() {
+        pm.test("Has correct schema", function() {
             pm.expect(jsonData.str).to.be.a("string");
             pm.expect(jsonData.numArray[0]).to.be.a("number");
             pm.expect(jsonData.numArray[0]).to.be.a("integer");
@@ -18,9 +18,9 @@ postman.setEnvironmentVariable("commonTests", () => {
     }
     //This is a function for the negative test, or the test we want to fail.
     var negative = () => {
-        tests[environment.requestName + "Status code is 400"] = responseCode.code === 400;
+        tests["Status code is 400"] = responseCode.code === 400;
         const jsonData = pm.response.json();
-        pm.test(environment.requestName + "Has correct schema", function() {
+        pm.test("Has correct schema", function() {
             pm.expect(jsonData.error).to.be.a("string");
         });
     }
