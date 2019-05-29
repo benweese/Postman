@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "99efc625-a56e-40a9-9285-c63b7176aa11",
+		"name": "newsapi.org",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Latest News",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "947d0244-c49a-438b-87ab-86503f122e0e",
+						"exec": [
+							"//Here we create a function that is then stored in the environmental variable. This is so we can then call this from any following test.",
+							"//This must be in the first test of the collection or collection folder.",
+							"postman.setEnvironmentVariable(\"commonTests\", () => {",
+							"    //These are test that are ran on every call of the commonTest.",
+							"    tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"    tests['JSON array is not empty'] = (responseBody.length > 0);",
+							"    //We then create a function within commonTest for the Successful test we will run.",
+							"    var positive = () => {",
+							"            tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"            //Below is checking that the data has the correct schema. If we wanted to check correct data we could just add .and.is(data);",
+							"            var jsonData = JSON.parse(responseBody);",
+							"            var schema = {",
+							"                \"properties\": {",
+							"                    \"status\": {",
+							"                        \"type\": \"string\"",
+							"                    },",
+							"                    \"totalResults\": {",
+							"                        \"type\": \"number\"",
+							"                    },",
+							"                    \"articles\": {",
+							"                        \"type\": \"array\",",
+							"                        \"properties\": {",
+							"                            \"source\": {",
+							"                                \"id\": {",
+							"",
+							"                                },",
+							"                                \"name\": {",
+							"                                    \"type\": \"string\"",
+							"                                }",
+							"                            },",
+							"                            \"author\": {",
+							"                                \"type\": \"string\"",
+							"                            },",
+							"                            \"title\": {",
+							"                                \"type\": \"string\"",
+							"                            },",
+							"                            \"description\": {",
+							"                                \"type\": \"string\"",
+							"                            },",
+							"                            \"url\": {",
+							"                                \"type\": \"string\"",
+							"                            },",
+							"                            \"urlToImage\": {",
+							"                                \"type\": \"string\"",
+							"                            },",
+							"                            \"publishedAt\": {",
+							"                                \"type\": \"string\"",
+							"                                //\"format\": /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/",
+							"                            },",
+							"                            \"content\": {",
+							"                                \"type\": \"string\"",
+							"                            }",
+							"                        }",
+							"                    }",
+							"                }",
+							"            };",
+							"            pm.test('Schema is valid', function() {",
+							"                tests[\"Schema is valid\"] = tv4.validate(JSON.parse(responseBody), schema);",
+							"            });",
+							"        }",
+							"        //This is a function for the negative test, or the test we want to fail.",
+							"    var negative = () => {",
+							"            tests[\"Status code is 400\"] = responseCode.code === 400;",
+							"            const jsonData = pm.response.json();",
+							"            pm.test(\"Has correct schema\", function() {",
+							"                pm.expect(jsonData.status).to.be.a(\"string\").equals(\"error\");",
+							"                pm.expect(jsonData.code).to.be.a(\"string\");",
+							"                pm.expect(jsonData.message).to.be.a(\"string\");",
+							"            });",
+							"        }",
+							"        //Lastly we return the functions, so we can call them from outside the environmental variable",
+							"    return {",
+							"        testType: {",
+							"            positive,",
+							"            negative",
+							"        }",
+							"    };",
+							"});",
+							"",
+							"eval(environment.commonTests)().testType.positive();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/top-headlines?country=us",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"top-headlines"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "us"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Latest News error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "947d0244-c49a-438b-87ab-86503f122e0e",
+						"exec": [
+							"eval(environment.commonTests)().testType.negative();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/top-headlines",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"top-headlines"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
