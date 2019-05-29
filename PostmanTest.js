@@ -14,6 +14,7 @@ postman.setEnvironmentVariable("commonTests", () => {
             pm.expect(jsonData.numArray[0]).to.be.a("number");
             pm.expect(jsonData.numArray[0]).to.be.a("integer");
             pm.expect(jsonData.bool).to.be.a("boolean");
+        });
     }
     //This is a function for the negative test, or the test we want to fail.
     var negative = () => {
