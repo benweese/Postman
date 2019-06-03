@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
-  newman-collection-run-env-timeout:
+  build:
     executor: newman/postman-newman-docker
     steps:
       - checkout
