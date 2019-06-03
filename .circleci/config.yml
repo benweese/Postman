@@ -7,6 +7,6 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: ./newsapi.org.postman_collection.json
+          collection: ./collection.json
           environment: ./newsapi.org.postman_environment.json
           timeout: '1000'
