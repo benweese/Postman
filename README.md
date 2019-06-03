@@ -10,7 +10,7 @@ This project is for testing the newsapi.org for practice
 To work on my API testing skills.
 
 ## Build status
-[![Build Status](https://travis-ci.org/benweese/Postman.svg?branch=master)](https://travis-ci.org/benweese/Postman)
+[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=svg)](https://circleci.com/gh/benweese/Postman/tree/master)
 
 ## Tools Used
 
