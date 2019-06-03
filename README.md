@@ -18,7 +18,7 @@ To work on my API testing skills.
 - [Postman](https://www.getpostman.com/apps)
 
 ## Features
-With API testing our Travis-CI runner will use Newman to run postman collections in Command line.
+With API testing our Circle-CI runner will use Newman to run postman collections in Command line.
 
 ## Code Example
 
