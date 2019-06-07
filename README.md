@@ -16,6 +16,9 @@ To work on my API testing skills.
 <b>Continuous Intergration</b>
 - [CircleCI](https://circleci.com/)
 
+<b>Postman CLI</b>
+- [Newman](https://hub.docker.com/r/postman/newman/)
+
 <b>Json Lint</b>
 - [Json Lint](https://jsonlint.com/)
 
