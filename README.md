@@ -10,9 +10,14 @@ This project is for testing the newsapi.org for practice
 To work on my API testing skills.
 
 ## Build status
-[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=svg)](https://circleci.com/gh/benweese/Postman/tree/master) [![DepShield Badge](https://depshield.sonatype.org/badges/benweese/Postman/depshield.svg)](https://depshield.github.io)
+[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=svg)](https://circleci.com/gh/benweese/Postman/tree/master) 
 
 ## Tools Used
+<b>Continuous Intergration</b>
+- [CircleCI](https://circleci.com/)
+
+<b>Json Lint</b>
+- [Json Lint](https://jsonlint.com/)
 
 <b>Downloads</b>
 - [Postman](https://www.getpostman.com/apps)
@@ -67,11 +72,9 @@ eval(environment.commonTests)().testType.negative();
 ```
 
 ## Documentation
-
-You can find postman training here.
 - [All Things Postman](https://github.com/DannyDainton/All-Things-Postman/)
+- [Postman Testing](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
+- [API testing tips from a Postman professional](https://blog.getpostman.com/2017/07/28/api-testing-tips-from-a-postman-professional/)
 
 ## Credits
-Ben Weese
-
-MacPractice © [Ben Weese](https://benweese.dev/)
+[Ben Weese](https://benweese.dev/)
