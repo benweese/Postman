@@ -13,6 +13,9 @@ To work on my API testing skills.
 [![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=shield)](https://circleci.com/gh/benweese/Postman/tree/master) 
 
 ## Tools Used
+<b>News API</b>
+- [NewsAPI.org](https://newsapi.org/)
+
 <b>Continuous Intergration</b>
 - [CircleCI](https://circleci.com/)
 
