@@ -10,7 +10,7 @@ This project is for testing the newsapi.org for practice
 To work on my API testing skills.
 
 ## Build status
-[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=shield)](https://circleci.com/gh/benweese/Postman/tree/master) 
+[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=shield)](https://circleci.com/gh/benweese/Postman/tree/master) ![GitHub](https://img.shields.io/github/license/benweese/Postman.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/benweese/Postman.svg) 
 
 ## Tools Used
 <b>News API</b>
