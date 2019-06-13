@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "5df9a536-e13e-4673-ae51-01abea4a2a2b",
+		"name": "SWAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST SWAPI GraphQL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae3aa425-ec6e-4660-9d48-788d3b93bc2b",
+						"exec": [
+							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"tests['JSON array is not empty'] = (responseBody.length > 0);",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"tests[\"JSON array is not empty\"] = (responseBody.length > 2);",
+							"pm.test(\"Response does not error\", function() {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"});",
+							"pm.test(\"Response must be valid and have a body\", function() {",
+							"    pm.response.to.be.json; // this assertion checks if a body  exists",
+							"});",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Has correct schema\", function() {",
+							"    pm.expect(jsonData.data.allFilms.films).to.be.a(\"array\");",
+							"    for(var i=0; i<jsonData.data.allFilms.films.length; i++){",
+							"        pm.expect(jsonData.data.allFilms.films[i].id).to.be.a(\"string\");",
+							"        pm.expect(jsonData.data.allFilms.films[i].title).to.be.a(\"string\");",
+							"        pm.expect(jsonData.data.allFilms.films[i].episodeID).to.be.a(\"number\");",
+							"    }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  allFilms\n  {\n   films {\n      id\n      title\n      episodeID\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://swapi.apis.guru/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"apis",
+						"guru"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
