@@ -16,6 +16,10 @@ To work on my API testing skills.
 <b>News API</b>
 - [NewsAPI.org](https://newsapi.org/)
 
+<b>SWAPI</b>
+- [SWAPI GraphQL](https://swapi.apis.guru/)
+- [How to use Postman and GraphQL](https://www.codetraveler.io/2019/01/12/how-to-use-postman-with-a-graphql-api/)
+
 <b>Continuous Intergration</b>
 - [CircleCI](https://circleci.com/)
 
@@ -81,6 +85,7 @@ eval(environment.commonTests)().testType.negative();
 - [All Things Postman](https://github.com/DannyDainton/All-Things-Postman/)
 - [Postman Testing](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
 - [API testing tips from a Postman professional](https://blog.getpostman.com/2017/07/28/api-testing-tips-from-a-postman-professional/)
+- [GraphQL support in Postman available for early access on canary channel](https://community.getpostman.com/t/graphql-support-in-postman-available-for-early-access-on-canary-channel/5524/3)
 
 ## Credits
 [Ben Weese](https://benweese.dev/)
