@@ -10,3 +10,6 @@ jobs:
           collection: ./newsapi.org.postman_collection.json
           environment: ./newsapi.org.postman_environment.json
           timeout: '1000'
+      - newman/newman-run:
+          collection: ./SWAPI.postman_collection.json
+          timeout: '1000'
