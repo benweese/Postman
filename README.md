@@ -3,6 +3,8 @@
 - [Java Automation](https://benweese.dev/javaautomation/)
 - [Java Automation Template](https://benweese.dev/Java_Automation_Template/)
 - [BenWeese.com](https://benweese.com)
+- [Websites](http://benweese.dev/Websites/)
+- [Synology NAS](https://benweese.dev/Synology-NAS/)
 
 ## Postman
 This project is for testing APIs for practice. You can check out the [wiki](https://github.com/benweese/Postman/wiki) for more information and learning.
