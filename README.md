@@ -1,10 +1,11 @@
 # BenWeese.Dev
 - [Home](https://benweese.dev)
 - [Java Automation](https://benweese.dev/javaautomation/)
+- [Java Automation Template](https://benweese.dev/Java_Automation_Template/)
 - [BenWeese.com](https://benweese.com)
 
 ## Postman
-This project is for testing the newsapi.org for practice
+This project is for testing APIs for practice. You can check out the [wiki](https://github.com/benweese/Postman/wiki) for more information and learning.
 
 ## Motivation
 To work on my API testing skills.
