@@ -87,9 +87,14 @@ eval(environment.commonTests)().testType.negative();
 
 ## Documentation
 - [All Things Postman](https://github.com/DannyDainton/All-Things-Postman/)
+- [Postman Quick Reference Guide](https://postman-quick-reference-guide.readthedocs.io/en/latest/index.html)
 - [Postman Testing](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
 - [API testing tips from a Postman professional](https://blog.getpostman.com/2017/07/28/api-testing-tips-from-a-postman-professional/)
 - [GraphQL support in Postman available for early access on canary channel](https://community.getpostman.com/t/graphql-support-in-postman-available-for-early-access-on-canary-channel/5524/3)
+- [Chai Assertion Library ](https://www.chaijs.com/api/bdd/)
+- [Regex Cheat Sheet](https://www.rexegg.com/regex-quickstart.html)
+- [Postman API Network](https://www.getpostman.com/api-network/)
+
 
 ## Credits
 [Ben Weese](https://benweese.dev/)
