@@ -151,9 +151,9 @@
 							"eval(environment.commonTests)().testType.negative();",
 							"const jsonData = pm.response.json();",
 							"pm.test(\"Has correct schema\", function() {",
-							"    pm.expect(jsonData.status).to.be.a(\"string\").equals(\"error\");",
-							"    pm.expect(jsonData.code).to.be.a(\"string\");",
-							"    pm.expect(jsonData.message).to.be.a(\"string\");",
+							"    pm.expect(jsonData.status).to.be.a(\"string\").equals(\"error\", \"Status is not a string or not error\");",
+							"    pm.expect(jsonData.code).to.be.a(\"string\", \"code is not a string\");",
+							"    pm.expect(jsonData.message).to.be.a(\"string\", \"message is not a string\");",
 							"});"
 						],
 						"type": "text/javascript"
