@@ -13,10 +13,13 @@
 					"script": {
 						"id": "ae3aa425-ec6e-4660-9d48-788d3b93bc2b",
 						"exec": [
-							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
-							"tests['JSON array is not empty'] = (responseBody.length > 0);",
-							"tests[\"Status code is 200\"] = responseCode.code === 200;",
-							"tests[\"JSON array is not empty\"] = (responseBody.length > 2);",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
 							"pm.test(\"Response does not error\", function() {",
 							"    pm.response.to.not.be.error;",
 							"    pm.response.to.not.have.jsonBody(\"error\");",
@@ -40,21 +43,7 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "query{\n  allFilms\n  {\n   films {\n      id\n      title\n      episodeID\n    }\n  }\n}",
-						"variables": ""
-					}
-				},
+				"header": [],
 				"url": {
 					"raw": "https://swapi.apis.guru/",
 					"protocol": "https",
