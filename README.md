@@ -44,29 +44,32 @@ With API testing our Circle-CI runner will use Newman to run postman collections
 //This must be in the first test of the collection or collection folder.
 postman.setEnvironmentVariable("commonTests", () => {
     //These are test that are ran on every call of the commonTest.
-    tests["Response time is less than 500ms"] = responseTime < 500;
-    tests['JSON array is not empty'] = (responseBody.length > 0);
+    pm.test("Response time is less than 200ms", function () {
+        pm.expect(pm.response.responseTime).to.be.below(200);
+    });
+    pm.test("Response must be valid and have a body", function() {
+        pm.response.to.be.json; // this assertion checks if a body  exists
+    });
+    
     //We then create a function within commonTest for the Successful test we will run.
     var positive = () => {
-        tests["Status code is 200"] = responseCode.code === 200;
-        //Below is checking that the data has the correct schema. If we wanted to check correct data we could just add .and.is(data);
-        const jsonData = pm.response.json();
-        pm.test("Has correct schema", function() {
-            pm.expect(jsonData.str).to.be.a("string");
-            pm.expect(jsonData.numArray[0]).to.be.a("number");
-            pm.expect(jsonData.numArray[0]).to.be.a("integer");
-            pm.expect(jsonData.bool).to.be.a("boolean");
+            
+        pm.test("Status code is 200", function () {
+            pm.response.to.have.status(200);
         });
+        pm.test("Response does not error", function() {
+            pm.response.to.not.be.error;
+            pm.response.to.not.have.jsonBody("error");
+        });
+        
     }
-    //This is a function for the negative test, or the test we want to fail.
+        //This is a function for the negative test, or the test we want to fail.
     var negative = () => {
-        tests["Status code is 400"] = responseCode.code === 400;
-        const jsonData = pm.response.json();
-        pm.test("Has correct schema", function() {
-            pm.expect(jsonData.error).to.be.a("string");
+        pm.test("Status code is 400", function () {
+            pm.response.to.have.status(400);
         });
     }
-    //Lastly we return the functions, so we can call them from outside the environmental variable
+        //Lastly we return the functions, so we can call them from outside the environmental variable
     return {
         testType: {
             positive,
