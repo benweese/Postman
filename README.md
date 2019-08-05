@@ -11,7 +11,7 @@ This project is for testing APIs for practice. You can check out the [Wiki](http
 To work on my API testing skills.
 
 ## Build status
-[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=shield)](https://circleci.com/gh/benweese/Postman/tree/master) ![GitHub](https://img.shields.io/github/license/benweese/Postman.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/benweese/Postman.svg) 
+[![CircleCI](https://circleci.com/gh/benweese/Postman/tree/master.svg?style=shield)](https://circleci.com/gh/benweese/Postman/tree/master) ![GitHub](https://img.shields.io/github/license/benweese/Postman.svg) ![GitHub issues](https://img.shields.io/github/issues-raw/benweese/Postman.svg) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/benweese/postman-api-testing)
 
 ## Tools Used
 <b>News API</b>
