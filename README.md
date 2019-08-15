@@ -1,7 +1,7 @@
 # BenWeese.Dev
 - [Home](https://benweese.dev)
 - [Java Automation](https://benweese.dev/Java_Automation/)
-- [Java Automation Template](https://benweese.dev/Java_Automation_Template/)
+- [Python Automation](https://github.com/benweese/Python-Automation/)
 - [BenWeese.com](https://benweese.com)
 
 ## Postman
