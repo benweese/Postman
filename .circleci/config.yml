@@ -10,6 +10,7 @@ jobs:
           collection: ./newsapi.org.postman_collection.json
           environment: ./newsapi.org.postman_environment.json
           timeout: '1000'
+          additional-options: '--suppress-exit-code'
 
 # Orbs uses newman 4.4.1 and GraphQL comes in version 4.5.0
 #      - newman/newman-run:
