@@ -30,11 +30,11 @@
 							"var jsonData = pm.response.json();",
 							"pm.test(\"Has correct schema\", function() {",
 							"    pm.expect(jsonData.data.allFilms.films).to.be.a(\"array\");",
-							"    for(var i=0; i<jsonData.data.allFilms.films.length; i++){",
-							"        pm.expect(jsonData.data.allFilms.films[i].id).to.be.a(\"string\");",
-							"        pm.expect(jsonData.data.allFilms.films[i].title).to.be.a(\"string\");",
-							"        pm.expect(jsonData.data.allFilms.films[i].episodeID).to.be.a(\"number\");",
-							"    }",
+							"    _.each(jsonData.data.allFilms.films, (film) => {",
+							"        pm.expect(film.id).to.be.a(\"string\", \"Film ID not string.\");",
+							"        pm.expect(film.title).to.be.a(\"string\", \"Film Title not string.\");",
+							"        pm.expect(film.episodeID).to.be.a(\"number\", \"Film Episode ID not number.\");",
+							"    })",
 							"});"
 						],
 						"type": "text/javascript"
@@ -44,6 +44,13 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  allFilms\n  {\n   films {\n      id\n      title\n      episodeID\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
 				"url": {
 					"raw": "https://swapi.apis.guru/",
 					"protocol": "https",
