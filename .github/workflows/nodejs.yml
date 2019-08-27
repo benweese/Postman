@@ -22,6 +22,6 @@ jobs:
         npm install -g newman
         npm install -g newman-reporter-htmlextra
     - name: Run Newsapi Test
-        run: newman run newsapi.org.postman_collection.json -e newsapi.org.postman_environment.json -k --suppress-exit-code -r cli,htmlextra --reporter-htmlextra-darkTheme
+        run: newman run newsapi.org.postman_collection.json -e newsapi.org.postman_environment.json -k -r cli,htmlextra --reporter-htmlextra-darkTheme
    - name: Run SWAPI GraphQL Test
-      run: newman run SWAPI.postman_collection.json -k --suppress-exit-code -r cli,htmlextra --reporter-htmlextra-darkTheme
+      run: newman run SWAPI.postman_collection.json -k -r cli,htmlextra --reporter-htmlextra-darkTheme
