@@ -1,0 +1,34 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
+      env:
+        CI: true
+    - name: Install Dependancies
+      run: |
+        npm install -g newman
+        npm install -g newman-reporter-htmlextra
+    - name: Run Test
+      run: |
+        newman run newsapi.org.postman_collection.json -e newsapi.org.postman_environment.json -k -r cli,htmlextra --reporter-htmlextra-darkTheme
+        newman run SWAPI.postman_collection.json -k -r cli,htmlextra --reporter-htmlextra-darkTheme
