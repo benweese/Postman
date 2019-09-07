@@ -1,9 +1,3 @@
-# BenWeese.Dev
-- [Home](https://benweese.dev)
-- [Java Automation](https://benweese.dev/Java_Automation/)
-- [Python Automation](https://benweese.dev/Python-Automation/)
-- [BenWeese.com](https://benweese.com)
-
 ## Postman
 This project is for testing APIs for practice. You can check out the [Wiki](https://github.com/benweese/Postman/wiki) for more information and learning.
 
