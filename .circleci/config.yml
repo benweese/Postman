@@ -21,15 +21,15 @@ jobs:
                     -e newsapi.org.postman_environment.json 
                     -x -r htmlextra --reporter-htmlextra-darkTheme 
                     ~/test-results/newsapi.html
-     - run:
+      - run:
           name: Swapi API
           command: newman run SWAPI.postman_collection.json 
                     -x -r htmlextra --reporter-htmlextra-darkTheme 
                     ~/test-results/swapi.html
-     - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: ~/test-results
-     - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: ~/test-results
+      - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: ~/test-results/
          
 workflows:
   version: 2
