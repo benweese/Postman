@@ -1,18 +1,41 @@
-version: 2.1
-orbs:
-  newman: postman/newman@0.0.2
+version: 2
 jobs:
   build:
-    executor: newman/postman-newman-docker
+    docker:
+      - image: docker:stable-git
     steps:
       - checkout
-      - newman/newman-run:
-          collection: ./newsapi.org.postman_collection.json
-          environment: ./newsapi.org.postman_environment.json
-          timeout: '1000'
-          additional-options: '--suppress-exit-code'
+      - setup_remote_docker
+      - run:
+          name: Build the Docker image
+          command: docker build . --file Dockerfile        
 
-# Orbs uses newman 4.4.1 and GraphQL comes in version 4.5.0
-#      - newman/newman-run:
-#          collection: ./SWAPI.postman_collection.json
-#          timeout: '1000'
+  test:
+    docker:
+      - image: benweese/postman
+    steps:
+      - checkout
+      - run:
+          name: News API
+          command: newman run newsapi.org.postman_collection.json 
+                    -e newsapi.org.postman_environment.json 
+                    -x -r htmlextra --reporter-htmlextra-darkTheme 
+                    ~/test-results/newsapi.html
+     - run:
+          name: Swapi API
+          command: newman run SWAPI.postman_collection.json 
+                    -x -r htmlextra --reporter-htmlextra-darkTheme 
+                    ~/test-results/swapi.html
+     - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: ~/test-results
+     - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: ~/test-results
+         
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
