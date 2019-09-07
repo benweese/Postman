@@ -27,7 +27,7 @@ jobs:
                     -x -r cli,htmlextra --reporter-htmlextra-darkTheme 
                     --reporter-htmlextra-export
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: ~/newman/
+          path: /newman/
          
 workflows:
   version: 2
